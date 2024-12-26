@@ -1,56 +1,37 @@
 document.addEventListener('DOMContentLoaded', function () {
-    document
-      .querySelector('form')
-      .addEventListener('submit', function (event) {
-        event.preventDefault(); // Prevent form submission
+  const form = document.querySelector('form');
 
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const password = document.getElementById('password').value;
-        const confirmPassword =
-          document.getElementById('confirmPassword').value;
+  form.addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent form submission
 
-        // Validate inputs
-        if (
-          name === '' ||
-          email === '' ||
-          password === '' ||
-          confirmPassword === ''
-        ) {
-          alert('All fields are required.');
-          return;
-        }
+    // Get input values
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
 
-        // Validate password length
-        if (password.length < 6) {
-          alert('Password must be at least 6 characters long.');
-          return;
-        }
+    // Validate inputs
+    if (!name || !email || !password || !confirmPassword) {
+      alert('All fields are required.');
+      return;
+    }
 
-        // Validate password match
-        if (password !== confirmPassword) {
-          const errorModal = new bootstrap.Modal(
-            document.getElementById('errorModal'),
-            { keyboard: false }
-          );
+    // Validate password length
+    if (password.length < 6) {
+      alert('Password must be at least 6 characters long.');
+      return;
+    }
 
-          // Show the error modal for password mismatch
-          errorModal.show();
-          return;
-        }
+    // Validate password match
+    if (password !== confirmPassword) {
+      alert('Passwords do not match.');
+      return;
+    }
 
-        // Simulate successful registration (Replace with server-side logic)
-        const successModal = new bootstrap.Modal(
-          document.getElementById('registerModal'),
-          { keyboard: false }
-        );
-
-        // Show the success modal
-        successModal.show();
-
-        // Redirect to login.html after registration
-        setTimeout(function () {
-          window.location.href = '../home/home.html';
-        }, 2000); // 2-second delay before redirecting
-      });
+    // Submit the form
+    alert('Signup successful! Redirecting...');
+    setTimeout(function () {
+      form.submit(); // Submit the form to the server
+    }, 2000); // Optional delay before submission
   });
+});

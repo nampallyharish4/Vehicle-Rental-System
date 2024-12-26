@@ -112,17 +112,6 @@ app.get('/login', (req, res) => {
   });
 });
 
-
-
-
-
-
-
-
-
-
-
-
 // Post request for signup
 app.post('/signup', async (req, res) => {
   try {
@@ -147,7 +136,7 @@ app.post('/signup', async (req, res) => {
                     <h5 class="modal-title">Registration Failed</h5>
                   </div>
                   <div class="modal-body">
-                    <p>Email ${email}! is already registered. Please try with a different email.</p>
+                    <p>Email <strong>${email} </strong> is already registered. Please try with a different email.</p>
                   </div>
                   <div class="modal-footer">
                     <a href="/signup" class="btn btn-primary">Back to Signup</a>

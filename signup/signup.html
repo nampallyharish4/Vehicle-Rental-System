@@ -49,22 +49,11 @@
             type="password"
             required
           />
-          <input value="Register" class="btn" type="submit" />
+          <input value="Sign Up" class="btn" type="submit" />
         </form>
-        <form action="/login" method="get" style="display: inline">
+        <form action="/login" method="get">
           <span>Already have an account? </span>
-          <h6
-            style="
-              display: inline;
-              cursor: pointer;
-              color: blue;
-              text-decoration: underline;
-              margin: 0;
-            "
-            onclick="this.closest('form').submit();"
-          >
-            Login
-          </h6>
+          <h6 onclick="this.closest('form').submit();">Login</h6>
         </form>
       </div>
     </div>

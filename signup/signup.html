@@ -15,7 +15,12 @@
     <div class="container">
       <div class="registration wrap">
         <h1>Registration</h1>
-        <form action="/signup" method="POST" method="get"  onsubmit="validateForm(event)">
+        <form
+          action="/signup"
+          method="POST"
+          method="get"
+          onsubmit="validateForm(event)"
+        >
           <input
             placeholder="Full Name"
             id="name"
@@ -45,6 +50,21 @@
             required
           />
           <input value="Register" class="btn" type="submit" />
+        </form>
+        <form action="/login" method="get" style="display: inline">
+          <span>Already have an account? </span>
+          <h6
+            style="
+              display: inline;
+              cursor: pointer;
+              color: blue;
+              text-decoration: underline;
+              margin: 0;
+            "
+            onclick="this.closest('form').submit();"
+          >
+            Login
+          </h6>
         </form>
       </div>
     </div>

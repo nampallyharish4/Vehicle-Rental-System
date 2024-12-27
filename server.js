@@ -56,7 +56,7 @@ const userSchema = new mongoose.Schema({
 
 const Users = mongoose.model('Users', userSchema);
 
-// Routes
+// Routers
 
 // Root URL redirects to signup page
 app.get('/', (req, res) => {
@@ -110,6 +110,10 @@ app.get('/login', (req, res) => {
     console.log('Session destroyed');
     res.redirect('/login.html');
   });
+});
+
+app.get('/login', (req, res) => {
+  res.sendFile(path.join(__dirname, 'loginpage', 'login.html'));
 });
 
 // Post request for signup
@@ -294,6 +298,72 @@ app.post('/login', async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).send('Error during login');
+  }
+});
+
+// Signout route
+app.post('/signout', async (req, res) => {
+  try {
+    // Destroy the session
+    req.session.destroy((err) => {
+      // Handle errors during session destruction
+      if (err) {
+        console.error('Error during session destruction:', err);
+        // Send error response with modal
+        return res.status(500).send(`
+          <html>
+            <head>
+              <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+            </head>
+            <body>
+              <div class="alert alert-danger" role="alert">
+                Error occurred during signout. Please try again later.
+              </div>
+            </body>
+          </html>
+        `);
+      }
+
+      console.log('Session destroyed successfully');
+
+      // Send a response with a modal and redirect
+      res.send(`
+        <html>
+          <head>
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+          </head>
+          <body>
+            <!-- Modal Markup -->
+            <div class="modal fade show" tabindex="-1" style="display:block; background-color: rgba(0, 0, 0, 0.5);" aria-modal="true" role="dialog">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Sign Out Successful</h5>
+                  </div>
+                  <div class="modal-body">
+                    <p>You have been signed out successfully. Redirecting to the Home page...</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-primary" onclick="redirectToLogin()">Redirect Now</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Script for automatic redirection -->
+            <script>
+              function redirectToLogin() {
+                window.location.href = '/home1.html'; // Redirect to the Home page
+              }
+              setTimeout(redirectToLogin, 2000); // Redirect after 2 seconds
+            </script>
+          </body>
+        </html>
+      `);
+    });
+  } catch (err) {
+    console.error('Unexpected error during signout:', err);
+    res.status(500).send('Internal Server Error');
   }
 });
 

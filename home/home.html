@@ -112,161 +112,115 @@
             </li>
           </ul>
           <div class="d-flex">
-            <form action="/signout" method="get">
+            <!-- Trigger Modal -->
+            <button
+              type="button"
+              class="btn btn-danger"
+              data-bs-toggle="modal"
+              data-bs-target="#signOutModal"
+            >
+              Sign Out
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Sign-Out Confirmation Modal -->
+    <div
+      class="modal fade"
+      id="signOutModal"
+      tabindex="-1"
+      aria-labelledby="signOutModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="signOutModalLabel">Confirm Sign Out</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">Are you sure you want to sign out?</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <!-- Submit the POST request -->
+            <form action="/signout" method="post" class="d-inline">
               <button type="submit" class="btn btn-danger">Sign Out</button>
             </form>
           </div>
         </div>
       </div>
-    </nav>
+    </div>
+
     <!-- Navbar Close-->
 
     <!-- Main Open-->
-    <main class="d-flex flex-nowrap bd-mode-toggle space">
-      <div class="container-fluid p-4">
-        <div class="row">
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <div class="container text-center">
+        <h1>Find Your Perfect Ride</h1>
+        <p>Affordable, reliable, and luxurious rentals at your fingertips.</p>
+        <a href="#categories" class="btn btn-warning btn-lg">Browse Vehicles</a>
+      </div>
+    </div>
+
+    <!-- Featured Vehicle Section -->
+    <section id="featured" class="featured-section">
+      <div class="container text-center">
+        <h2 class="mb-5">Featured Vehicle of the Month</h2>
+        <div class="row align-items-center">
           <div class="col-md-6">
             <img
-              src="../images/car-rental.png"
-              alt="Featured Vehicle"
-              class="img-fluid rounded mb-3 space1"
+              src="../images/featured-car.jpg"
+              alt="Luxury Sedan"
+              class="img-fluid rounded"
             />
           </div>
           <div class="col-md-6">
-            <h2>Featured Vehicle: Luxury Sedan</h2>
-            <p class="lead">
-              Experience comfort and style with our top-of-the-line luxury
-              sedan.
+            <h3>Luxury Sedan: 2024 Executive XL</h3>
+            <p>
+              Experience unmatched comfort and style with this state-of-the-art
+              hybrid vehicle.
             </p>
-            <ul class="list-unstyled">
+            <ul class="list-unstyled text-start">
               <li><strong>Model:</strong> 2024 Executive XL</li>
               <li><strong>Seats:</strong> 5</li>
               <li><strong>Fuel Type:</strong> Hybrid</li>
               <li><strong>Daily Rate:</strong> $150</li>
             </ul>
-            <button class="btn btn-outline-primary btn-lg">Book Now</button>
+            <a href="#" class="btn btn-outline-success btn-lg">Book Now</a>
           </div>
         </div>
+      </div>
+    </section>
 
-        <h2 class="space">Featured</h2>
-        <h2 class="mt-5 mb-4"></h2>
-
-        <hr class="featurette-divider" />
-
-        <div class="row featurette">
-          <div class="col-md-7">
-            <h2 class="featurette-heading fw-normal lh-1">
-              First featurette heading.
-              <span class="text-body-secondary">It’ll blow your mind.</span>
-            </h2>
-            <p class="lead">
-              Some great placeholder content for the first featurette here.
-              Imagine some exciting prose here.
-            </p>
-          </div>
-          <div class="col-md-5">
-            <svg
-              class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
-              width="500"
-              height="500"
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-label="Placeholder: 500x500"
-              preserveAspectRatio="xMidYMid slice"
-              focusable="false"
-            >
-              <title>Placeholder</title>
-              <rect width="100%" height="100%" fill="var(--bs-secondary-bg)" />
-              <text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">
-                500x500
-              </text>
-            </svg>
-          </div>
-        </div>
-
-        <hr class="featurette-divider" />
-
-        <div class="row featurette">
-          <div class="col-md-7 order-md-2">
-            <h2 class="featurette-heading fw-normal lh-1">
-              Oh yeah, it’s that good.
-              <span class="text-body-secondary">See for yourself.</span>
-            </h2>
-            <p class="lead">
-              Another featurette? Of course. More placeholder content here to
-              give you an idea of how this layout would work with some actual
-              real-world content in place.
-            </p>
-          </div>
-          <div class="col-md-5 order-md-1">
-            <svg
-              class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
-              width="500"
-              height="500"
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-label="Placeholder: 500x500"
-              preserveAspectRatio="xMidYMid slice"
-              focusable="false"
-            >
-              <title>Placeholder</title>
-              <rect width="100%" height="100%" fill="var(--bs-secondary-bg)" />
-              <text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">
-                500x500
-              </text>
-            </svg>
-          </div>
-        </div>
-
-        <hr class="featurette-divider" />
-
-        <div class="row featurette">
-          <div class="col-md-7">
-            <h2 class="featurette-heading fw-normal lh-1">
-              And lastly, this one.
-              <span class="text-body-secondary">Checkmate.</span>
-            </h2>
-            <p class="lead">
-              And yes, this is the last block of representative placeholder
-              content. Again, not really intended to be actually read, simply
-              here to give you a better view of what this would look like with
-              some actual content. Your content.
-            </p>
-          </div>
-          <div class="col-md-5">
-            <svg
-              class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
-              width="500"
-              height="500"
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-label="Placeholder: 500x500"
-              preserveAspectRatio="xMidYMid slice"
-              focusable="false"
-            >
-              <title>Placeholder</title>
-              <rect width="100%" height="100%" fill="var(--bs-secondary-bg)" />
-              <text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">
-                500x500
-              </text>
-            </svg>
-          </div>
-        </div>
-
-        <hr class="featurette-divider" />
-
+    <!-- Categories Section -->
+    <section id="categories" class="py-5">
+      <div class="container">
+        <h2 class="text-center mb-4">Explore Our Categories</h2>
         <div class="row">
           <div class="col-md-4 mb-4">
             <div class="card border-0">
               <img
-                src="../images/main-car.png"
+                src="../images/economy-car.jpg"
                 class="card-img-top"
                 alt="Economy Car"
               />
               <div class="card-body">
                 <h5 class="card-title">Economy Car</h5>
                 <p class="card-text">
-                  Perfect for city driving and budget-conscious travelers.
+                  Affordable and efficient for city driving.
                 </p>
                 <a href="#" class="btn btn-outline-primary">View Details</a>
               </div>
@@ -274,17 +228,10 @@
           </div>
           <div class="col-md-4 mb-4">
             <div class="card border-0">
-              <img
-                src="../images/main-car.png"
-                class="card-img-top"
-                alt="SUV"
-              />
+              <img src="../images/suv.jpg" class="card-img-top" alt="SUV" />
               <div class="card-body">
                 <h5 class="card-title">SUV</h5>
-                <p class="card-text">
-                  Spacious and comfortable for family trips and outdoor
-                  adventures.
-                </p>
+                <p class="card-text">Spacious and perfect for family trips.</p>
                 <a href="#" class="btn btn-outline-primary">View Details</a>
               </div>
             </div>
@@ -292,68 +239,14 @@
           <div class="col-md-4 mb-4">
             <div class="card border-0">
               <img
-                src="../images/main-car.png"
+                src="../images/sports-car.jpg"
                 class="card-img-top"
                 alt="Sports Car"
               />
               <div class="card-body">
                 <h5 class="card-title">Sports Car</h5>
                 <p class="card-text">
-                  Feel the thrill of the road with our high-performance sports
-                  cars.
-                </p>
-                <a href="#" class="btn btn-outline-primary">View Details</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-4 mb-4">
-            <div class="card border-0">
-              <img
-                src="../images/main-car.png"
-                class="card-img-top"
-                alt="Economy Car"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Economy Car</h5>
-                <p class="card-text">
-                  Perfect for city driving and budget-conscious travelers.
-                </p>
-                <a href="#" class="btn btn-outline-primary">View Details</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 mb-4">
-            <div class="card border-0">
-              <img
-                src="../images/main-car.png"
-                class="card-img-top"
-                alt="SUV"
-              />
-              <div class="card-body">
-                <h5 class="card-title">SUV</h5>
-                <p class="card-text">
-                  Spacious and comfortable for family trips and outdoor
-                  adventures.
-                </p>
-                <a href="#" class="btn btn-outline-primary">View Details</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 mb-4">
-            <div class="card border-0">
-              <img
-                src="../images/main-car.png"
-                class="card-img-top"
-                alt="Sports Car"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Sports Car</h5>
-                <p class="card-text">
-                  Feel the thrill of the road with our high-performance sports
-                  cars.
+                  Feel the thrill with our high-performance cars.
                 </p>
                 <a href="#" class="btn btn-outline-primary">View Details</a>
               </div>
@@ -361,7 +254,7 @@
           </div>
         </div>
       </div>
-    </main>
+    </section>
     <!-- Main Close-->
 
     <!-- Footer -->

@@ -23,7 +23,6 @@ body {
 
 .hero-section {
   margin-top: 100px;
-  color: rgb(255, 255, 255);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,11 +44,11 @@ body {
 }
 
 [data-bs-theme='dark'] .hero-section::before {
-  background-color: rgba(255, 255, 255, 0);
+  color: rgb(255, 255, 255);
 }
 
 [data-bs-theme='light'] .hero-section::before {
-  background-color: rgba(255, 255, 255, 0);
+  color: rgb(0, 0, 0);
 }
 
 .hero-section h1 {

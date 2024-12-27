@@ -1,12 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Caveat&family=Doto:ROND@100&family=Julius+Sans+One&family=Lilita+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Vinyl&family=Spicy+Rice&display=swap');
 
+body {
+  transition: background-color 0.3s ease;
+}
+
 .nav-item {
   font-size: larger;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   transition: all 0.3s ease;
-  margin-right: 40px; /* Added distance between each text item */
+  margin-right: 40px;
   margin-left: 40px;
 }
+
 .nav-item:hover {
   text-decoration: none;
   color: rgb(8, 8, 8);
@@ -14,282 +19,54 @@
   box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.1);
 }
 
-.bd-placeholder-img {
-  font-size: 1.125rem;
-  text-anchor: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-}
+/* ... (keep other styles unchanged) ... */
 
-@media (min-width: 768px) {
-  .bd-placeholder-img-lg {
-    font-size: 3.5rem;
-  }
-}
-
-.b-example-divider {
-  width: 100%;
-  height: 3rem;
-  background-color: rgba(0, 0, 0, 0.1);
-  border: solid rgba(0, 0, 0, 0.15);
-  border-width: 1px 0;
-  box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),
-    inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
-}
-
-.b-example-vr {
-  flex-shrink: 0;
-  width: 1.5rem;
-  height: 100vh;
-}
-
-.bi {
-  vertical-align: -0.125em;
-  fill: currentColor;
-}
-
-.nav-scroller {
-  position: relative;
-  z-index: 2;
-  height: 2.75rem;
-  overflow-y: hidden;
-}
-
-.nav-scroller .nav {
-  display: flex;
-  flex-wrap: nowrap;
-  padding-bottom: 1rem;
-  margin-top: -1px;
-  overflow-x: auto;
-  text-align: center;
-  white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
-}
-
-.btn-bd-primary {
-  --bd-violet-bg: #712cf9;
-  --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
-
-  --bs-btn-font-weight: 600;
-  --bs-btn-color: var(--bs-white);
-  --bs-btn-bg: var(--bd-violet-bg);
-  --bs-btn-border-color: var(--bd-violet-bg);
-  --bs-btn-hover-color: var(--bs-white);
-  --bs-btn-hover-bg: #6528e0;
-  --bs-btn-hover-border-color: #6528e0;
-  --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-  --bs-btn-active-color: var(--bs-btn-hover-color);
-  --bs-btn-active-bg: #5a23c8;
-  --bs-btn-active-border-color: #5a23c8;
-}
-
-.bd-mode-toggle {
-  z-index: 1500;
-}
-
-.bd-mode-toggle .dropdown-menu .active .bi {
-  display: block !important;
-}
-h2 {
-  font-family: 'Poppins', serif;
-  font-weight: 600;
-  font-style: normal;
-  text-align: center;
-  color: rgb(64, 93, 114);
-}
-.space {
-  margin-top: 50px;
-}
-.space1 {
-  margin-top: 80px;
-}
-
-/* Icons */
-
-/* From Uiverse.io by wilsondesouza */
-ul {
-  list-style: none;
-}
-
-.example-2 {
+.hero-section {
+  margin-top: 100px;
+  color: rgb(255, 255, 255);
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.example-2 .icon-content {
-  margin: 0 10px;
-  position: relative;
-}
-.example-2 .icon-content .tooltip {
-  position: absolute;
-  top: -30px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #fff;
-  padding: 6px 10px;
-  border-radius: 5px;
-  opacity: 0;
-  visibility: hidden;
-  font-size: 14px;
-  transition: all 0.3s ease;
-}
-.example-2 .icon-content:hover .tooltip {
-  opacity: 1;
-  visibility: visible;
-  top: -50px;
-}
-.example-2 .icon-content a {
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  color: #4d4d4d;
-  background-color: #fff;
-  transition: all 0.3s ease-in-out;
-}
-.example-2 .icon-content a:hover {
-  box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
-}
-.example-2 .icon-content a svg {
+  text-align: center;
   position: relative;
   z-index: 1;
-  width: 30px;
-  height: 30px;
+  padding-bottom: 100px; /* Added to prevent overlap with toggle */
 }
-.example-2 .icon-content a:hover {
-  color: white;
-}
-.example-2 .icon-content a .filled {
+
+.hero-section::before {
+  content: '';
   position: absolute;
-  top: auto;
-  bottom: 0;
+  top: 0;
   left: 0;
-  width: 100%;
-  height: 0;
-  background-color: #000;
-  transition: all 0.3s ease-in-out;
-}
-.example-2 .icon-content a:hover .filled {
-  height: 100%;
+  right: 0;
+  bottom: 80px; /* Changed from 0 to 80px to prevent overlap with toggle */
+  z-index: -1;
+  transition: background-color 0.3s ease;
 }
 
-.example-2 .icon-content a[data-social='linkedin'] .filled,
-.example-2 .icon-content a[data-social='linkedin'] ~ .tooltip {
-  background-color: #0274b3;
+[data-bs-theme='dark'] .hero-section::before {
+  background-color: rgba(255, 255, 255, 0);
 }
 
-.example-2 .icon-content a[data-social='github'] .filled,
-.example-2 .icon-content a[data-social='github'] ~ .tooltip {
-  background-color: #24262a;
-}
-.example-2 .icon-content a[data-social='instagram'] .filled,
-.example-2 .icon-content a[data-social='instagram'] ~ .tooltip {
-  background: linear-gradient(
-    45deg,
-    #405de6,
-    #5b51db,
-    #b33ab4,
-    #c135b4,
-    #e1306c,
-    #fd1f1f
-  );
-}
-.example-2 .icon-content a[data-social='youtube'] .filled,
-.example-2 .icon-content a[data-social='youtube'] ~ .tooltip {
-  background-color: #ff0000;
+[data-bs-theme='light'] .hero-section::before {
+  background-color: rgba(255, 255, 255, 0);
 }
 
-/* CUSTOMIZE THE CAROUSEL
--------------------------------------------------- */
-
-/* Carousel base class */
-.carousel {
-  margin-bottom: 4rem;
-}
-/* Since positioning the image, we need to help out the caption */
-.carousel-caption {
-  bottom: 3rem;
-  z-index: 10;
-}
-
-/* Declare heights because of positioning of img element */
-.carousel-item {
-  height: 32rem;
-}
-
-/* MARKETING CONTENT
--------------------------------------------------- */
-
-/* Center align the text within the three columns below the carousel */
-.marketing .col-lg-4 {
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-.marketing .col-lg-4 p {
-  margin-right: 0.75rem;
-  margin-left: 0.75rem;
-}
-
-/* Featurettes
-------------------------- */
-
-.featurette-divider {
-  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
-}
-
-/* Thin out the marketing headings */
-
-/* RESPONSIVE CSS
--------------------------------------------------- */
-
-@media (min-width: 40em) {
-  /* Bump up size of carousel content */
-  .carousel-caption p {
-    margin-bottom: 1.25rem;
-    font-size: 1.25rem;
-    line-height: 1.4;
-  }
-
-  .featurette-heading {
-    font-size: 50px;
-  }
-}
-
-@media (min-width: 62em) {
-  .featurette-heading {
-    margin-top: 7rem;
-  }
-}
-.hero-section {
-  background: url('../images/hero-bg.jpg') center center/cover no-repeat;
-  height: 500px;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
 .hero-section h1 {
   font-size: 3.5rem;
   font-weight: bold;
 }
+
 .hero-section p {
   font-size: 1.5rem;
 }
+
 .card img {
   height: 200px;
   object-fit: cover;
 }
+
 .pricing-card img {
   height: 150px;
   object-fit: cover;
-}
-.featured-section {
-  background: #f8f9fa;
-  padding: 50px 0;
 }

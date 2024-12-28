@@ -183,3 +183,15 @@ p {
   background-color: #78737396;
   transform: translateY(-4px) scale(1.4);
 }
+
+/* Center collapsible content horizontally */
+.collapse-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 120px;
+}
+
+.collapse-container .card {
+  width: 300px;
+}

@@ -239,117 +239,6 @@
 
     <!-- Navbar Close-->
 
-    <!-- Main Open-->
-    <div class="hero-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <h1 class="display-4">Find Your Perfect Ride</h1>
-            <p class="lead">
-              Affordable, reliable, and luxurious rentals at your fingertips.
-            </p>
-            <a href="#categories" class="btn btn-warning btn-lg mt-3"
-              >Browse Vehicles</a
-            >
-          </div>
-          <div class="col-md-6">
-            <img src="../images/activa1.png" alt="Hero Image" />
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="hero-section">
-      <div class="container">
-        <div class="row mt-5">
-          <div class="col-md-12">
-            <form
-              action="/search"
-              method="GET"
-              class="p-4 border rounded shadow-sm"
-            >
-              <h3 class="text-center mb-4">Book Your Vehicle</h3>
-              <div class="row">
-                <!-- Vehicle Type Dropdown -->
-                <div class="col-md-2 mb-3">
-                  <label for="vehicleType" class="form-label"
-                    >Select Vehicle Type</label
-                  >
-                  <select
-                    id="vehicleType"
-                    name="vehicleType"
-                    class="form-select"
-                    required
-                  >
-                    <option value="two-wheeler">Two-Wheeler</option>
-                    <option value="three-wheeler">Three-Wheeler</option>
-                    <option value="large-vehicle">Large Vehicle</option>
-                  </select>
-                </div>
-
-                <!-- Pickup Date -->
-                <div class="col-md-2 mb-3">
-                  <label for="pickupDate" class="form-label">Pickup Date</label>
-                  <input
-                    type="date"
-                    id="pickupDate"
-                    name="pickupDate"
-                    class="form-control"
-                    required
-                  />
-                </div>
-
-                <!-- Pickup Time -->
-                <div class="col-md-2 mb-3">
-                  <label for="pickupTime" class="form-label">Pickup Time</label>
-                  <input
-                    type="time"
-                    id="pickupTime"
-                    name="pickupTime"
-                    class="form-control"
-                    required
-                  />
-                </div>
-                <!-- Drop-off Date -->
-                <div class="col-md-2 mb-3">
-                  <label for="dropoffDate" class="form-label"
-                    >Drop-off Date</label
-                  >
-                  <input
-                    type="date"
-                    id="dropoffDate"
-                    name="dropoffDate"
-                    class="form-control"
-                    required
-                  />
-                </div>
-
-                <!-- Drop-off Time -->
-                <div class="col-md-2 mb-3">
-                  <label for="dropoffTime" class="form-label"
-                    >Drop-off Time</label
-                  >
-                  <input
-                    type="time"
-                    id="dropoffTime"
-                    name="dropoffTime"
-                    class="form-control"
-                    required
-                  />
-                </div>
-
-                <!-- Search Button -->
-                <div class="col-md-2 mb-3 d-flex align-items-end">
-                  <button type="submit" class="btn btn-primary btn-lg w-100">
-                    <i class="fas fa-search"></i> Search
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- Hero Section -->
     <div class="hero-section">
       <div class="container text-center">
@@ -406,6 +295,123 @@
         <a href="#categories" class="btn btn-warning btn-lg">Browse Vehicles</a>
       </div>
     </div>
+    <!-- Hero Section Close-->
+
+    <!-- Search open-->
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col-md-12">
+          <form
+            action="/search"
+            method="GET"
+            class="p-4 border rounded shadow-sm"
+          >
+            <h3 class="text-center mb-4">Book Your Vehicle</h3>
+            <div class="row">
+              <!-- Vehicle Type Dropdown -->
+              <div class="col-md-2 mb-3">
+                <label for="vehicleType" class="form-label"
+                  >Select Vehicle Type</label
+                >
+                <select
+                  id="vehicleType"
+                  name="vehicleType"
+                  class="form-select"
+                  required
+                >
+                  <option value="two-wheeler">Two-Wheeler</option>
+                  <option value="three-wheeler">Three-Wheeler</option>
+                  <option value="large-vehicle">Large Vehicle</option>
+                </select>
+              </div>
+
+              <!-- Pickup Date -->
+              <div class="col-md-2 mb-3">
+                <label for="pickupDate" class="form-label">Pickup Date</label>
+                <input
+                  type="date"
+                  id="pickupDate"
+                  name="pickupDate"
+                  class="form-control"
+                  required
+                />
+              </div>
+
+              <!-- Pickup Time -->
+              <div class="col-md-2 mb-3">
+                <label for="pickupTime" class="form-label">Pickup Time</label>
+                <input
+                  type="time"
+                  id="pickupTime"
+                  name="pickupTime"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <!-- Drop-off Date -->
+              <div class="col-md-2 mb-3">
+                <label for="dropoffDate" class="form-label"
+                  >Drop-off Date</label
+                >
+                <input
+                  type="date"
+                  id="dropoffDate"
+                  name="dropoffDate"
+                  class="form-control"
+                  required
+                />
+              </div>
+
+              <!-- Drop-off Time -->
+              <div class="col-md-2 mb-3">
+                <label for="dropoffTime" class="form-label"
+                  >Drop-off Time</label
+                >
+                <input
+                  type="time"
+                  id="dropoffTime"
+                  name="dropoffTime"
+                  class="form-control"
+                  required
+                />
+              </div>
+
+              <!-- Search Button -->
+              <div class="col-md-2 mb-3 d-flex align-items-end">
+                <button type="submit" class="btn btn-primary btn-lg w-100">
+                  <i class="fas fa-search"></i> Search
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search Close-->
+
+    <!-- Main Open-->
+    <div class="hero-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h1 class="display-4">
+              The cheapest Vehicle rental rates are just a click away
+            </h1>
+            <p class="lead">
+              Finding the perfect Vehicle rental is easier than ever!
+            </p>
+            <a href="#categories" class="btn btn-warning btn-lg mt-3"
+              >Browse Vehicles</a
+            >
+          </div>
+          <div class="col-md-6">
+            <img src="../images/activa1.png" alt="Hero Image" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Main close-->
 
     <!-- Featured Vehicle Section -->
     <section id="featured" class="min-vh-100 d-flex align-items-center">

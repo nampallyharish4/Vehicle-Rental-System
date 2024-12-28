@@ -85,3 +85,14 @@
     });
   });
 })();
+
+
+//Collapse all other elements when one is opened
+function collapseOthers(openId) {
+  const allCollapses = document.querySelectorAll('.collapse');
+  allCollapses.forEach((collapse) => {
+    if (collapse.id !== openId && collapse.classList.contains('show')) {
+      new bootstrap.Collapse(collapse, { toggle: true });
+    }
+  });
+}

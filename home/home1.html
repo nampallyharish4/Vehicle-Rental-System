@@ -46,7 +46,7 @@
   <!--Body Open-->
   <body>
     <!-- Navbar open -->
-    <nav class="navbar navbar-expand-lg bd-mode-toggle">
+    <nav class="navbar navbar-expand-lg bd-mode-toggle py-1">
       <div class="container border-bottom">
         <a class="navbar-brand" href="#">
           <img
@@ -71,19 +71,18 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+              <a class="nav-link" href="#">Home</a>
             </li>
-            <li class="nav-item dropdown">
-              <a
+            <li class="nav-item dropdown mb-2">
+              <span
                 class="nav-link"
-                href="#"
                 id="modelsDropdown"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
                 Models
-              </a>
+              </span>
               <ul class="dropdown-menu" aria-labelledby="modelsDropdown">
                 <li>
                   <a class="dropdown-item text-start" href="#">Action</a>
@@ -100,17 +99,16 @@
                 </li>
               </ul>
             </li>
-            <li class="nav-item dropdown">
-              <a
+            <li class="nav-item dropdown mb-2">
+              <span
                 class="nav-link"
-                href="#"
                 id="modelsDropdown"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
                 Models
-              </a>
+              </span>
               <ul class="dropdown-menu" aria-labelledby="modelsDropdown">
                 <li>
                   <a class="dropdown-item text-start" href="#">Action</a>
@@ -127,44 +125,16 @@
                 </li>
               </ul>
             </li>
-            <li class="nav-item dropdown">
-              <a
+            <li class="nav-item dropdown mb-2">
+              <span
                 class="nav-link"
-                href="#"
                 id="modelsDropdown"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
                 Models
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="modelsDropdown">
-                <li>
-                  <a class="dropdown-item text-start" href="#">Action</a>
-                </li>
-                <li>
-                  <a class="dropdown-item text-start" href="#"
-                    >Another action</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item text-start" href="#"
-                    >Something else here</a
-                  >
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link"
-                href="#"
-                id="modelsDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Models
-              </a>
+              </span>
               <ul class="dropdown-menu" aria-labelledby="modelsDropdown">
                 <li>
                   <a class="dropdown-item text-start" href="#">Action</a>
@@ -182,18 +152,20 @@
               </ul>
             </li>
           </ul>
+
           <div class="d-flex">
             <form action="/login" method="get">
               <button type="submit" class="btn btn-danger me-3">Login</button>
             </form>
 
             <form action="/signup" method="get">
-              <button type="submit" class="btn btn-danger">Register</button>
+              <button type="submit" class="btn btn-danger">Signup</button>
             </form>
           </div>
         </div>
       </div>
     </nav>
+
     <!-- Navbar close -->
 
     <!-- Main Open-->
@@ -280,7 +252,6 @@
               <li><strong>Daily Rate:</strong> $150</li>
             </ul>
             <div class="d-flex justify-content-center gap-3">
-              <a href="#" class="btn btn-outline-success btn-lg">Book Ride</a>
               <a href="#" class="btn btn-outline-danger btn-lg">View Details</a>
             </div>
           </div>

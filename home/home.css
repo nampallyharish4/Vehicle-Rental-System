@@ -4,6 +4,12 @@ body {
   transition: background-color 0.3s ease;
 }
 
+/* Custom CSS to reduce navbar height */
+.navbar {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
 li,
 h4 {
   text-align: center;
@@ -161,4 +167,8 @@ p {
 .dropdown-menu {
   display: none;
   transition: all 0.3s ease;
+}
+
+.navbar-collapse {
+  margin-top: 10px;
 }

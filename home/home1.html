@@ -159,8 +159,8 @@
     </div>
 
     <!-- Featured Vehicle Section -->
-    <section id="featured">
-      <div class="container text-center shadow-lg p-3 mb-5 rounded">
+    <section id="featured" class="min-vh-100 d-flex align-items-center">
+      <div class="container text-center shadow-lg p-4 rounded">
         <h2 class="mb-5">Featured Vehicle of the Month</h2>
         <div class="row align-items-center">
           <div class="col-md-5">
@@ -168,6 +168,7 @@
               src="../images/main-car.png"
               alt="Luxury Sedan"
               class="img-fluid rounded"
+              style="max-width: 100%; height: auto"
             />
           </div>
           <div class="col-md-7">
@@ -182,8 +183,10 @@
               <li><strong>Fuel Type:</strong> Hybrid</li>
               <li><strong>Daily Rate:</strong> $150</li>
             </ul>
-            <a href="#" class="btn btn-outline-success btn-lg">Book Now</a>
-            <a href="#" class="btn btn btn-outline-danger btn-lg">Learn More</a>
+            <div class="d-flex justify-content-center gap-3">
+              <a href="#" class="btn btn-outline-success btn-lg">Book Ride</a>
+              <a href="#" class="btn btn-outline-danger btn-lg">View Details</a>
+            </div>
           </div>
         </div>
       </div>
@@ -205,22 +208,23 @@
                 <h5 class="card-text text-center">Economy Car</h5>
                 <p>
                   <button
-                    class="btn btn-primary"
+                    class="btn btn-outline-primary"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#collapseWidthExample1"
                     aria-expanded="false"
                     aria-controls="collapseWidthExample1"
+                    onclick="collapseOthers('collapseWidthExample1')"
                   >
-                    Toggle width collapse
+                    View Details
                   </button>
                 </p>
-                <div style="min-height: 120px">
+                <div class="collapse-container">
                   <div
                     class="collapse collapse-horizontal"
                     id="collapseWidthExample1"
                   >
-                    <div class="card card-body" style="width: 300px">
+                    <div class="card card-body">
                       This is some placeholder content for a horizontal
                       collapse. It's hidden by default and shown when triggered.
                     </div>
@@ -240,22 +244,23 @@
                 <h5 class="card-text text-center">Economy Car</h5>
                 <p>
                   <button
-                    class="btn btn-primary"
+                    class="btn btn-outline-primary"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#collapseWidthExample2"
                     aria-expanded="false"
                     aria-controls="collapseWidthExample2"
+                    onclick="collapseOthers('collapseWidthExample2')"
                   >
-                    Toggle width collapse
+                    View Details
                   </button>
                 </p>
-                <div style="min-height: 120px">
+                <div class="collapse-container">
                   <div
                     class="collapse collapse-horizontal"
                     id="collapseWidthExample2"
                   >
-                    <div class="card card-body" style="width: 300px">
+                    <div class="card card-body">
                       This is some placeholder content for a horizontal
                       collapse. It's hidden by default and shown when triggered.
                     </div>
@@ -275,22 +280,23 @@
                 <h5 class="card-text text-center">Economy Car</h5>
                 <p>
                   <button
-                    class="btn btn-primary"
+                    class="btn btn-outline-primary"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#collapseWidthExample3"
                     aria-expanded="false"
                     aria-controls="collapseWidthExample3"
+                    onclick="collapseOthers('collapseWidthExample3')"
                   >
-                    Toggle width collapse
+                    View Details
                   </button>
                 </p>
-                <div style="min-height: 120px">
+                <div class="collapse-container">
                   <div
                     class="collapse collapse-horizontal"
                     id="collapseWidthExample3"
                   >
-                    <div class="card card-body" style="width: 300px">
+                    <div class="card card-body">
                       This is some placeholder content for a horizontal
                       collapse. It's hidden by default and shown when triggered.
                     </div>
@@ -302,6 +308,32 @@
         </div>
       </div>
     </section>
+
+    <style>
+      /* Center collapsible content horizontally */
+      .collapse-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 120px;
+      }
+
+      .collapse-container .card {
+        width: 300px;
+      }
+    </style>
+
+    <script>
+      function collapseOthers(openId) {
+        const allCollapses = document.querySelectorAll('.collapse');
+        allCollapses.forEach((collapse) => {
+          if (collapse.id !== openId && collapse.classList.contains('show')) {
+            new bootstrap.Collapse(collapse, { toggle: true });
+          }
+        });
+      }
+    </script>
+
     <!-- Main Close-->
 
     <!-- Footer -->

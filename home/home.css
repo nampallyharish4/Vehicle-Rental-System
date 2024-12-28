@@ -172,3 +172,14 @@ p {
 .navbar-collapse {
   margin-top: 10px;
 }
+
+/*Footer style*/
+
+.st-text li {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.st-text li:hover {
+  background-color: #78737396;
+  transform: translateY(-4px) scale(1.4);
+}

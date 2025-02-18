@@ -1,7 +1,7 @@
 
 # Vehicle Rental System
 
-A **vehicle rental system** is a platform  that allows customers to rent vehicles for a specific period. These systems can vary in complexity, ranging from small manual setups to sophisticated, fully automated software systems. Here’s a breakdown:
+A **vehicle rental system** is a platform  that allows customers to rent vehicles for a specific period. These systems can vary in complexity, ranging from small manual setups to sophisticated, fully automated WEB SITE. Here’s a breakdown:
 
 ---
 

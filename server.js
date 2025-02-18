@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const session = require('express-session');
+const bcrypt = require('bcryptjs'); // Replace bcrypt with bcryptjs // Import bcrypt for password hashing
 const app = express();
 const port = 1818;
 
@@ -50,13 +51,11 @@ db.once('open', () => {
 // Define the user schema and model
 const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
-  pass: { type: String, required: true },
+  pass: { type: String, required: true }, // Store hashed password
   name: { type: String, required: true },
 });
 
 const Users = mongoose.model('Users', userSchema);
-
-// Routers
 
 // Root URL redirects to signup page
 app.get('/', (req, res) => {
@@ -73,7 +72,7 @@ app.get('/home', (req, res) => {
   res.sendFile(path.join(__dirname, 'home', 'home.html'));
 });
 
-// Route for sign-out
+// Route for sign-out (GET request)
 app.get('/signout', (req, res) => {
   console.log('Sign-out request received');
   req.session.destroy((err) => {
@@ -82,36 +81,23 @@ app.get('/signout', (req, res) => {
       return res.status(500).send('Error during sign out');
     }
     console.log('Session destroyed');
-    res.redirect('/home1.html');
+    res.redirect('/home1.html'); // Redirect to the home page after sign-out
   });
 });
 
-// Route for sign-up
-app.get('/signup', (req, res) => {
+// Route for sign-out (POST request)
+app.post('/signout', (req, res) => {
   console.log('Sign-out request received');
   req.session.destroy((err) => {
     if (err) {
       console.error('Error during session destruction', err);
-      return res.status(500).send('Error during sign up');
+      return res.status(500).send('Error during sign out');
     }
     console.log('Session destroyed');
-    res.redirect('/signup.html');
+    res.redirect('/home1.html'); // Redirect to the home page after sign-out
   });
 });
-
 // Route for Login
-app.get('/login', (req, res) => {
-  console.log('Sign-out request received');
-  req.session.destroy((err) => {
-    if (err) {
-      console.error('Error during session destruction', err);
-      return res.status(500).send('Error during sign up');
-    }
-    console.log('Session destroyed');
-    res.redirect('/login.html');
-  });
-});
-
 app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, 'loginpage', 'login.html'));
 });
@@ -153,8 +139,12 @@ app.post('/signup', async (req, res) => {
       `);
     }
 
-    // Save new user
-    const user = new Users({ email, pass, name });
+    // Hash the password
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(pass, saltRounds);
+
+    // Save new user with hashed password
+    const user = new Users({ email, pass: hashedPassword, name });
     await user.save();
     console.log('User registered:', user);
 
@@ -228,9 +218,41 @@ app.post('/login', async (req, res) => {
   try {
     const { email, pass } = req.body;
 
-    // Find user by email and password
-    const user = await Users.findOne({ email, pass });
+    // Find user by email
+    const user = await Users.findOne({ email });
     if (!user) {
+      return res.status(401).send(`
+        <html>
+          <head>
+            <link
+              href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+              rel="stylesheet"
+            />
+          </head>
+          <body>
+            <div class="modal fade show" style="display:block; background-color: rgba(0, 0, 0, 0.5);" tabindex="-1">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Login Failed</h5>
+                  </div>
+                  <div class="modal-body">
+                    <p>Invalid credentials. Please try again.</p>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="/login" class="btn btn-primary">Back to Login</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </body>
+        </html>
+      `);
+    }
+
+    // Compare the provided password with the hashed password in the database
+    const isMatch = await bcrypt.compare(pass, user.pass);
+    if (!isMatch) {
       return res.status(401).send(`
         <html>
           <head>
@@ -298,72 +320,6 @@ app.post('/login', async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).send('Error during login');
-  }
-});
-
-// Signout route
-app.post('/signout', async (req, res) => {
-  try {
-    // Destroy the session
-    req.session.destroy((err) => {
-      // Handle errors during session destruction
-      if (err) {
-        console.error('Error during session destruction:', err);
-        // Send error response with modal
-        return res.status(500).send(`
-          <html>
-            <head>
-              <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-            </head>
-            <body>
-              <div class="alert alert-danger" role="alert">
-                Error occurred during signout. Please try again later.
-              </div>
-            </body>
-          </html>
-        `);
-      }
-
-      console.log('Session destroyed successfully');
-
-      // Send a response with a modal and redirect
-      res.send(`
-        <html>
-          <head>
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-          </head>
-          <body>
-            <!-- Modal Markup -->
-            <div class="modal fade show" tabindex="-1" style="display:block; background-color: rgba(0, 0, 0, 0.5);" aria-modal="true" role="dialog">
-              <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">Sign Out Successful</h5>
-                  </div>
-                  <div class="modal-body">
-                    <p>You have been signed out successfully. Redirecting to the Home page...</p>
-                  </div>
-                  <div class="modal-footer">
-                    <button class="btn btn-primary" onclick="redirectToLogin()">Redirect Now</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Script for automatic redirection -->
-            <script>
-              function redirectToLogin() {
-                window.location.href = '/home1.html'; // Redirect to the Home page
-              }
-              setTimeout(redirectToLogin, 2000); // Redirect after 2 seconds
-            </script>
-          </body>
-        </html>
-      `);
-    });
-  } catch (err) {
-    console.error('Unexpected error during signout:', err);
-    res.status(500).send('Internal Server Error');
   }
 });
 

@@ -45,7 +45,7 @@ mongoose.connect('mongodb://localhost:27017', {
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once('open', () => {
-  console.log('Mongodb Connection Successful');
+  console.log('Mongodb Connection Successful 😁');
 });
 
 // Define the user schema and model
@@ -325,5 +325,5 @@ app.post('/login', async (req, res) => {
 
 // Start the server
 app.listen(port, () => {
-  console.log(`Server started on http://localhost:${port}`);
+  console.log(`Server started on ✅ http://localhost:${port}`);
 });

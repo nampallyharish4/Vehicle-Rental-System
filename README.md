@@ -94,7 +94,7 @@ Fetch node modules
 
 ```bash
   npm i
-  npm install bcryptjs
+  npm install bcrypt
 ```
 
 ## Deployment

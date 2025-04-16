@@ -108,5 +108,3 @@ To deploy this project run
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-madhu
-madhuv

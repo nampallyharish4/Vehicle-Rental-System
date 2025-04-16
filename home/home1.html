@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<!--Html Close-->
+<html lang="en" data-bs-theme="auto">
+  <!--head open-->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <title>Vehicle Rental</title>
+    <link rel="stylesheet" href="home.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <!--head close-->
+
+  <!--svg open-->
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="check2" viewBox="0 0 16 16">
+      <path
+        d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
+      />
+    </symbol>
+    <symbol id="circle-half" viewBox="0 0 16 16">
+      <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
+    </symbol>
+    <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+      <path
+        d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"
+      />
+      <path
+        d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"
+      />
+    </symbol>
+    <symbol id="sun-fill" viewBox="0 0 16 16">
+      <path
+        d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
+      />
+    </symbol>
+  </svg>
+  <!--svg close-->
+
+  <!--Body Open-->
+  <body>
+    <!-- Navbar open -->
+    <nav class="navbar navbar-expand-lg bd-mode-toggle py-1">
+      <div class="container border-bottom">
+        <a class="navbar-brand" href="#">
+          <img
+            src="../images/logo-1.png"
+            alt="Logo"
+            width="70"
+            height="60"
+            class="d-inline-block align-text-top me-2"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Vehicles</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Orders</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact As</a>
+            </li>
+            <li class="nav-item dropdown mb-2">
+              <span
+                class="nav-link"
+                id="modelsDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Models
+              </span>
+              <ul class="dropdown-menu" aria-labelledby="modelsDropdown">
+                <li>
+                  <a class="dropdown-item text-start" href="#">Action</a>
+                </li>
+                <li>
+                  <a class="dropdown-item text-start" href="#"
+                    >Another action</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item text-start" href="#"
+                    >Something else here</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <div class="d-flex">
+            <form action="/login" method="get">
+              <button type="submit" class="btn btn-danger me-3">Login</button>
+            </form>
+
+            <form action="/signup" method="get">
+              <button type="submit" class="btn btn-danger">Signup</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar close -->
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <div class="container text-center">
+        <div
+          id="heroCarousel"
+          class="carousel slide"
+          data-bs-ride="carousel"
+          data-bs-interval="4000"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item">
+              <img
+                src="../images/pleasure.png"
+                alt="Hero Image"
+                class="img-fluid w-30 h-20"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="../images/pleasure.png"
+                alt="Hero Image 2"
+                class="img-fluid w-30 h-20"
+              />
+            </div>
+            <div class="carousel-item active">
+              <img
+                src="../images/pleasure.png"
+                alt="Hero Image 3"
+                class="img-fluid w-30 h-20"
+              />
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#heroCarousel"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#heroCarousel"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <h1 class="mb-2">Find Your Perfect Ride</h1>
+        <p>Affordable, reliable, and luxurious rentals at your fingertips.</p>
+        <a href="#categories" class="btn btn-warning btn-lg">Browse Vehicles</a>
+      </div>
+    </div>
+    <!-- Hero Section Close-->
+
+    <!-- Search open-->
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col-md-12">
+          <form
+            action="/search"
+            method="GET"
+            class="p-4 border rounded shadow-sm"
+          >
+            <h3 class="text-center mb-4">Book Your Vehicle</h3>
+            <div class="row">
+              <!-- Vehicle Type Dropdown -->
+              <div class="col-md-2 mb-3">
+                <label for="vehicleType" class="form-label"
+                  >Select Vehicle Type</label
+                >
+                <select
+                  id="vehicleType"
+                  name="vehicleType"
+                  class="form-select"
+                  required
+                >
+                  <option value="two-wheeler">Two-Wheeler</option>
+                  <option value="three-wheeler">Three-Wheeler</option>
+                  <option value="large-vehicle">Large Vehicle</option>
+                </select>
+              </div>
+
+              <!-- Pickup Date -->
+              <div class="col-md-2 mb-3">
+                <label for="pickupDate" class="form-label">Pickup Date</label>
+                <input
+                  type="date"
+                  id="pickupDate"
+                  name="pickupDate"
+                  class="form-control"
+                  required
+                />
+              </div>
+
+              <!-- Pickup Time -->
+              <div class="col-md-2 mb-3">
+                <label for="pickupTime" class="form-label">Pickup Time</label>
+                <input
+                  type="time"
+                  id="pickupTime"
+                  name="pickupTime"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <!-- Drop-off Date -->
+              <div class="col-md-2 mb-3">
+                <label for="dropoffDate" class="form-label"
+                  >Drop-off Date</label
+                >
+                <input
+                  type="date"
+                  id="dropoffDate"
+                  name="dropoffDate"
+                  class="form-control"
+                  required
+                />
+              </div>
+
+              <!-- Drop-off Time -->
+              <div class="col-md-2 mb-3">
+                <label for="dropoffTime" class="form-label"
+                  >Drop-off Time</label
+                >
+                <input
+                  type="time"
+                  id="dropoffTime"
+                  name="dropoffTime"
+                  class="form-control"
+                  required
+                />
+              </div>
+
+              <!-- Search Button -->
+              <div class="col-md-2 mb-3 d-flex align-items-end">
+                <button type="submit" class="btn btn-primary btn-lg w-100">
+                  <i class="fas fa-search"></i> Search
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search Close-->
+
+    <!-- Main Open-->
+    <div class="hero-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h1 class="display-4">
+              The cheapest Vehicle rental rates are just at one click away
+            </h1>
+            <p class="lead">
+              Finding the perfect Vehicle rental is easier than ever!
+            </p>
+            <a href="#categories" class="btn btn-warning btn-lg mt-3"
+              >Browse Vehicles</a
+            >
+          </div>
+          <div class="col-md-6">
+            <img src="../images/main-car.png" alt="Hero Image" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Main close-->
+
+    <!-- Featured Vehicle Section -->
+    <section id="featured" class="min-vh-100 d-flex align-items-center">
+      <div class="container text-center shadow-lg p-4 rounded">
+        <h2 class="mb-5">Featured Vehicle of the Month</h2>
+        <div class="row align-items-center">
+          <div class="col-md-5">
+            <img
+              src="../images/main-car.png"
+              alt="Luxury Sedan"
+              class="img-fluid rounded"
+              style="max-width: 100%; height: auto"
+            />
+          </div>
+          <div class="col-md-7">
+            <h3>Luxury Sedan: 2024 Executive XL</h3>
+            <p>
+              Experience unmatched comfort and style with this state-of-the-art
+              hybrid vehicle.
+            </p>
+            <ul class="list-unstyled text-start">
+              <li><strong>Model:</strong> 2024 Executive XL</li>
+              <li><strong>Seats:</strong> 5</li>
+              <li><strong>Fuel Type:</strong> Hybrid</li>
+              <li><strong>Daily Rate:</strong> $150</li>
+            </ul>
+            <div class="d-flex justify-content-center gap-3">
+              <a href="#" class="btn btn-outline-danger btn-lg">View Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="py-5">
+      <div class="container">
+        <h2 class="text-center mb-4">Explore Our Categories</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="border-0">
+              <img
+                src="../images/main-car.png"
+                class="card-img-top"
+                alt="Economy Car"
+              />
+              <div class="card-body">
+                <h5 class="card-text text-center">Economy Car</h5>
+                <p>
+                  <button
+                    class="btn btn-outline-primary"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseWidthExample1"
+                    aria-expanded="false"
+                    aria-controls="collapseWidthExample1"
+                    onclick="collapseOthers('collapseWidthExample1')"
+                  >
+                    View Details
+                  </button>
+                </p>
+                <div class="collapse-container">
+                  <div
+                    class="collapse collapse-horizontal"
+                    id="collapseWidthExample1"
+                  >
+                    <div class="card card-body">
+                      This is some placeholder content for a horizontal
+                      collapse. It's hidden by default and shown when triggered.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="border-0">
+              <img
+                src="../images/main-car.png"
+                class="card-img-top"
+                alt="Economy Car"
+              />
+              <div class="card-body">
+                <h5 class="card-text text-center">Economy Car</h5>
+                <p>
+                  <button
+                    class="btn btn-outline-primary"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseWidthExample2"
+                    aria-expanded="false"
+                    aria-controls="collapseWidthExample2"
+                    onclick="collapseOthers('collapseWidthExample2')"
+                  >
+                    View Details
+                  </button>
+                </p>
+                <div class="collapse-container">
+                  <div
+                    class="collapse collapse-horizontal"
+                    id="collapseWidthExample2"
+                  >
+                    <div class="card card-body">
+                      This is some placeholder content for a horizontal
+                      collapse. It's hidden by default and shown when triggered.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="border-0">
+              <img
+                src="../images/main-car.png"
+                class="card-img-top"
+                alt="Economy Car"
+              />
+              <div class="card-body">
+                <h5 class="card-text text-center">Economy Car</h5>
+                <p>
+                  <button
+                    class="btn btn-outline-primary"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseWidthExample3"
+                    aria-expanded="false"
+                    aria-controls="collapseWidthExample3"
+                    onclick="collapseOthers('collapseWidthExample3')"
+                  >
+                    View Details
+                  </button>
+                </p>
+                <div class="collapse-container">
+                  <div
+                    class="collapse collapse-horizontal"
+                    id="collapseWidthExample3"
+                  >
+                    <div class="card card-body">
+                      This is some placeholder content for a horizontal
+                      collapse. It's hidden by default and shown when triggered.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="categories" class="py-5">
+      <div class="container">
+        <h2 class="text-center mb-4">Explore Our Categories</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="border-0">
+              <img
+                src="../images/main-car.png"
+                class="card-img-top"
+                alt="Economy Car"
+              />
+              <div class="card-body">
+                <h5 class="card-text text-center">Economy Car</h5>
+                <div class="d-flex justify-content-center gap-2">
+                  <button
+                    class="btn btn-outline-primary"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseWidthExample4"
+                    aria-expanded="false"
+                    aria-controls="collapseWidthExample4"
+                    onclick="collapseOthers('collapseWidthExample4')"
+                  >
+                    View Details
+                  </button>
+                </div>
+                <div class="collapse-container">
+                  <div
+                    class="collapse collapse-horizontal"
+                    id="collapseWidthExample4"
+                  >
+                    <div class="card card-body">
+                      This is some placeholder content for a horizontal
+                      collapse. It's hidden by default and shown when triggered.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="border-0">
+              <img
+                src="../images/main-car.png"
+                class="card-img-top"
+                alt="Economy Car"
+              />
+              <div class="card-body">
+                <h5 class="card-text text-center">Economy Car</h5>
+                <div class="d-flex justify-content-center gap-2">
+                  <button
+                    class="btn btn-outline-primary"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseWidthExample5"
+                    aria-expanded="false"
+                    aria-controls="collapseWidthExample5"
+                    onclick="collapseOthers('collapseWidthExample5')"
+                  >
+                    View Details
+                  </button>
+                </div>
+                <div class="collapse-container">
+                  <div
+                    class="collapse collapse-horizontal"
+                    id="collapseWidthExample5"
+                  >
+                    <div class="card card-body">
+                      This is some placeholder content for a horizontal
+                      collapse. It's hidden by default and shown when triggered.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="border-0">
+              <img
+                src="../images/main-car.png"
+                class="card-img-top"
+                alt="Economy Car"
+              />
+              <div class="card-body">
+                <h5 class="card-text text-center">Economy Car</h5>
+                <div class="d-flex justify-content-center gap-2">
+                  <button
+                    class="btn btn-outline-primary"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseWidthExample6"
+                    aria-expanded="false"
+                    aria-controls="collapseWidthExample6"
+                    onclick="collapseOthers('collapseWidthExample6')"
+                  >
+                    View Details
+                  </button>
+                </div>
+                <div class="collapse-container">
+                  <div
+                    class="collapse collapse-horizontal"
+                    id="collapseWidthExample6"
+                  >
+                    <div class="card card-body">
+                      This is some placeholder content for a horizontal
+                      collapse. It's hidden by default and shown when triggered.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Main Close-->
+
+    <!-- Footer -->
+    <div class="container">
+      <hr class="featurette-divider" />
+      <footer class="py-2">
+        <div class="row">
+          <div class="col-6 col-md-3 mb-3">
+            <h4 nav-item mb-2>Vehicle Rental</h4>
+            <ul class="nav flex-column st-text">
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-body-secondary"
+                  >Book a Vehicle</a
+                >
+              </li>
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-body-secondary"
+                  >Vehicle Types</a
+                >
+              </li>
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-body-secondary"
+                  >Rental Locations</a
+                >
+              </li>
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-body-secondary"
+                  >Pricing and Packages</a
+                >
+              </li>
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-body-secondary">FAQs</a>
+              </li>
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-body-secondary"
+                  >Contact Us</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-6 col-md-3 mb-3">
+            <h4 nav-item mb-2>Customer Support</h4>
+            <ul class="nav flex-column st-text">
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-body-secondary"
+                  >Help Center</a
+                >
+              </li>
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-body-secondary"
+                  >Terms and Conditions</a
+                >
+              </li>
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-body-secondary"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-body-secondary"
+                  >Refund Policy</a
+                >
+              </li>
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-body-secondary"
+                  >Customer Reviews</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-6 col-md-6 mb-2 py-5">
+            <!-- Footer Form -->
+            <form class="container subscribe">
+              <h4>Subscribe to our newsletter</h4>
+              <p>Monthly digest of what's new and exciting from us.</p>
+              <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                <label for="newsletter1" class="visually-hidden"
+                  >Email address</label
+                >
+                <input
+                  id="newsletter1"
+                  type="text"
+                  class="form-control"
+                  placeholder="Email address"
+                />
+                <button class="btn btn-primary" type="button">Subscribe</button>
+              </div>
+            </form>
+            <!-- Footer Close-->
+          </div>
+        </div>
+        <!--Icons Open-->
+        <div
+          class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top"
+        >
+          <p class="text-end">&copy; 2024 Company, Inc. All rights reserved.</p>
+        </div>
+        <!--Icons Close-->
+      </footer>
+    </div>
+    <!-- Footer Close -->
+
+    <!--switch-->
+    <div
+      class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle"
+    >
+      <button
+        class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        aria-label="Toggle theme (auto)"
+      >
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em">
+          <use href="#circle-half"></use>
+        </svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul
+        class="dropdown-menu dropdown-menu-end shadow"
+        aria-labelledby="bd-theme-text"
+      >
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="light"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" width="1em" height="1em">
+              <use href="#sun-fill"></use>
+            </svg>
+            Light
+            <svg class="bi ms-auto d-none" width="1em" height="1em">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="dark"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" width="1em" height="1em">
+              <use href="#moon-stars-fill"></use>
+            </svg>
+            Dark
+            <svg class="bi ms-auto d-none" width="1em" height="1em">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center active"
+            data-bs-theme-value="auto"
+            aria-pressed="true"
+          >
+            <svg class="bi me-2 opacity-50" width="1em" height="1em">
+              <use href="#circle-half"></use>
+            </svg>
+            Auto
+            <svg class="bi ms-auto d-none" width="1em" height="1em">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <script src="color-modes.js"></script>
+  </body>
+  <!--BodyClose-->
+</html>
+<!--Html Close-->

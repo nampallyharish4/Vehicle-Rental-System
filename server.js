@@ -57,9 +57,9 @@ const userSchema = new mongoose.Schema({
 
 const Users = mongoose.model('Users', userSchema);
 
-// Root URL redirects to signup page
+// Redirect to home1.html on opening localhost
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'signup', 'signup.html'));
+  res.redirect('/home1.html');
 });
 
 // Get the signup page
@@ -175,8 +175,8 @@ app.post('/signup', async (req, res) => {
           </div>
           <script>
             setTimeout(function() {
-              window.location.href = '/home';
-            }, 2000); // Redirect after 2 seconds
+              window.location.href = '/home'; // Redirect to the home page after 2 seconds
+            }, 2000);
           </script>
         </body>
       </html>
@@ -311,8 +311,8 @@ app.post('/login', async (req, res) => {
           </div>
           <script>
             setTimeout(function() {
-              window.location.href = '/home';
-            }, 2000); // Redirect after 2 seconds
+              window.location.href = '/home'; // Redirect to the home page after 2 seconds
+            }, 2000);
           </script>
         </body>
       </html>

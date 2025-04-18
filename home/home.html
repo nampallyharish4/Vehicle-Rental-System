@@ -121,15 +121,29 @@
           </ul>
           <div class="d-flex">
             <!-- Trigger Modal -->
-            <button
-              type="button"
-              class="btn btn-danger"
-              data-bs-toggle="modal"
-              data-bs-target="#signOutModal"
-            >
-              <i class="fa-solid fa-right-to-bracket"></i>
-              Sign Out
-            </button>
+            <div class="btn-group dropstart">
+              <button
+                type="button"
+                class="btn dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="fa-solid fa-circle-user fa-2xl"></i>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">List your vehicle</a></li>
+                <li><a class="dropdown-item" href="#">Edit profile</a></li>
+                <li>
+                  <button
+                    class="dropdown-item"
+                    data-bs-toggle="modal"
+                    data-bs-target="#signOutModal"
+                  >
+                    Sign out
+                  </button>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -147,12 +161,6 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="signOutModalLabel">Confirm Sign Out</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
           </div>
           <div class="modal-body">Are you sure you want to sign out?</div>
           <div class="modal-footer">
@@ -228,8 +236,23 @@
             <span class="visually-hidden">Next</span>
           </button>
         </div>
-        <h1 class="mb-2">Find Your Perfect Ride</h1>
-        <p>Affordable, reliable, and luxurious rentals at your fingertips.</p>
+        <h1
+          class="mb-2 ml-4 mr-4"
+          style="overflow: hidden; white-space: nowrap; margin: 0 250px"
+        >
+          <marquee behavior="scroll" direction="right" scrollamount="15"
+            >Find Your Perfect Ride</marquee
+          >
+        </h1>
+        <p
+          class="mb-2 ml-4 mr-4"
+          style="overflow: hidden; white-space: nowrap; margin: 0 250px"
+        >
+          <marquee behavior="scroll" direction="right" scrollamount="15"
+            >Affordable, reliable, and luxurious rentals at your
+            fingertips.</marquee
+          >
+        </p>
         <a href="#categories" class="btn btn-warning btn-lg">Browse Vehicles</a>
       </div>
     </div>

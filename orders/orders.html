@@ -1,43 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Car Rental System</title>
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    />
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="car.js"></script>
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Car Rental Website</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="home.css">
+  <style>
+    .navbar-custom {
+      background-color: #333;
+    }
+
+    .navbar-custom .navbar-brand,
+    .navbar-custom .navbar-nav .nav-link {
+      color: white;
+    }
+
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .btn-custom {
+      background-color: #007bff;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <a class="navbar-brand" href="#">
+      <img src="../images/logo-1.png" alt="Car Rental Logo" style="max-height: 50px;"> Car Rental
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="../home/home.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../fleet/fleet.html">Fleet</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../loginpage/login.html">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../signup/signup.html">Sign Up</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="order-list" class="py-5">
     <div class="container">
-      <div class="col-md-10">
-        <div id="orders">
-          <h1>Orders</h1>
-          <table class="table">
+      <h2 class="section-title">Your Orders</h2>
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table table-bordered">
             <thead>
               <tr>
                 <th>Order ID</th>
-                <th>User</th>
-                <th>Pick-up</th>
-                <th>Drop-off</th>
+                <th>Vehicle</th>
+                <th>Pickup Date</th>
+                <th>Return Date</th>
+                <th>Status</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>1</td>
-                <td>John Doe</td>
-                <td>2022-01-01</td>
-                <td>2022-01-05</td>
+                <td>12345</td>
+                <td>Toyota Camry</td>
+                <td>2024-01-15</td>
+                <td>2024-01-20</td>
+                <td>Confirmed</td>
+              </tr>
+              <tr>
+                <td>67890</td>
+                <td>Honda Civic</td>
+                <td>2024-02-10</td>
+                <td>2024-02-15</td>
+                <td>Completed</td>
+              </tr>
+              <tr>
+                <td>11223</td>
+                <td>Ford Mustang</td>
+                <td>2024-03-05</td>
+                <td>2024-03-10</td>
+                <td>Cancelled</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
     </div>
-  </body>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
 </html>

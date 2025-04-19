@@ -8,7 +8,7 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-        <script src="car.js"></script>
+        
     </head>
 <body>
     <div class="container">
@@ -28,7 +28,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">UPI</h5>
-                                <p class="card-text">Pay with UPI</p>
+                                <p class="card-text">Pay with UPI apps</p>
                             </div>
                         </div>
                     </div>
@@ -44,6 +44,38 @@
                 <button class="btn btn-success" onclick="makePayment()">Pay</button>
                 <button class="btn btn-info" onclick="printBill()">Print Bill</button>
                 <button class="btn btn-warning" onclick="generateQRCode()">QR Code</button>
+
+                <!-- UPI Apps Modal -->
+                <div class="modal fade" id="upiAppsModal" tabindex="-1" role="dialog" aria-labelledby="upiAppsModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="upiAppsModalLabel">Select UPI App</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Add UPI app options here -->
+                                <div class="list-group">
+                                    <a href="phonepe://pay?..." class="list-group-item list-group-item-action">PhonePe</a>
+                                    <a href="upi://pay?..." class="list-group-item list-group-item-action">Google Pay</a>
+                                    <a href="upi://pay?..." class="list-group-item list-group-item-action">Paytm</a>
+                                    <!-- Add more apps as needed -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                    // Add JavaScript to handle UPI card click and show the modal
+                    $(document).ready(function(){
+                        $(".card:contains('UPI')").click(function(){
+                            $("#upiAppsModal").modal('show');
+                        });
+                    });
+                </script>
             </div>
         </div>
     </div>

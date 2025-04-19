@@ -2,20 +2,20 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const session = require('express-session');
-const bcrypt = require('bcryptjs'); // Replace bcrypt with bcryptjs // Import bcrypt for password hashing
+const bcrypt = require('bcryptjs');
 const app = express();
 const port = 1818;
 
 // Session middleware configuration
 app.use(
   session({
-    secret: 'nnaammppaallyyhhaarriisshh', // A secret key to sign the session ID cookie (use a secure, unique key)
-    resave: false, // Prevents the session from being saved back to the store if it wasn't modified
-    saveUninitialized: true, // Force the session to be saved even if it is not modified
+    secret: 'nnaammppaallyyhhaarriisshh',
+    resave: false,
+    saveUninitialized: true,
     cookie: {
-      httpOnly: true, // Ensures the cookie is not accessible via JavaScript
-      secure: false, // Set to `true` if using HTTPS, to ensure cookies are only sent over secure connections
-      maxAge: 60000, // Set the expiration time of the session cookie (in milliseconds, 1 minute in this case)
+      httpOnly: true,
+      secure: false,
+      maxAge: 60000,
     },
   })
 );
@@ -36,6 +36,7 @@ app.use(
 
 // Middleware to parse URL-encoded data
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); // Add JSON parser middleware
 
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost:27017', {
@@ -51,8 +52,10 @@ db.once('open', () => {
 // Define the user schema and model
 const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
-  pass: { type: String, required: true }, // Store hashed password
+  pass: { type: String, required: true },
   name: { type: String, required: true },
+  phone: { type: String },
+  address: { type: String },
 });
 
 const Users = mongoose.model('Users', userSchema);
@@ -81,7 +84,7 @@ app.get('/signout', (req, res) => {
       return res.status(500).send('Error during sign out');
     }
     console.log('Session destroyed');
-    res.redirect('/home1.html'); // Redirect to the home page after sign-out
+    res.redirect('/home1.html');
   });
 });
 
@@ -94,9 +97,10 @@ app.post('/signout', (req, res) => {
       return res.status(500).send('Error during sign out');
     }
     console.log('Session destroyed');
-    res.redirect('/home1.html'); // Redirect to the home page after sign-out
+    res.redirect('/home1.html');
   });
 });
+
 // Route for Login
 app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, 'loginpage', 'login.html'));
@@ -107,16 +111,12 @@ app.post('/signup', async (req, res) => {
   try {
     const { email, pass, name } = req.body;
 
-    // Check if the email is already registered
     const existingUser = await Users.findOne({ email });
     if (existingUser) {
       return res.status(400).send(`
         <html>
           <head>
-            <link
-              href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-              rel="stylesheet"
-            />
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
           </head>
           <body>
             <div class="modal fade show" style="display:block; background-color: rgba(0, 0, 0, 0.5);" tabindex="-1">
@@ -126,7 +126,7 @@ app.post('/signup', async (req, res) => {
                     <h5 class="modal-title">Registration Failed</h5>
                   </div>
                   <div class="modal-body">
-                    <p>Email <strong>${email} </strong> is already registered. Please try with a different email.</p>
+                    <p>Email <strong>${email}</strong> is already registered. Please try with a different email.</p>
                   </div>
                   <div class="modal-footer">
                     <a href="/signup" class="btn btn-primary">Back to Signup</a>
@@ -139,26 +139,18 @@ app.post('/signup', async (req, res) => {
       `);
     }
 
-    // Hash the password
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(pass, saltRounds);
 
-    // Save new user with hashed password
     const user = new Users({ email, pass: hashedPassword, name });
     await user.save();
     console.log('User registered:', user);
 
-    // Serve a success modal with redirection
     res.send(`
       <html>
         <head>
-          <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-          />
-          <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-          ></script>
+          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         </head>
         <body>
           <div class="modal fade show" style="display:block; background-color: rgba(0, 0, 0, 0.5);" tabindex="-1">
@@ -175,7 +167,7 @@ app.post('/signup', async (req, res) => {
           </div>
           <script>
             setTimeout(function() {
-              window.location.href = '/home'; // Redirect to the home page after 2 seconds
+              window.location.href = '/home';
             }, 2000);
           </script>
         </body>
@@ -186,10 +178,7 @@ app.post('/signup', async (req, res) => {
     res.status(500).send(`
       <html>
         <head>
-          <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-          />
+          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
         </head>
         <body>
           <div class="modal fade show" style="display:block; background-color: rgba(0, 0, 0, 0.5);" tabindex="-1">
@@ -218,16 +207,12 @@ app.post('/login', async (req, res) => {
   try {
     const { email, pass } = req.body;
 
-    // Find user by email
     const user = await Users.findOne({ email });
     if (!user) {
       return res.status(401).send(`
         <html>
           <head>
-            <link
-              href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-              rel="stylesheet"
-            />
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
           </head>
           <body>
             <div class="modal fade show" style="display:block; background-color: rgba(0, 0, 0, 0.5);" tabindex="-1">
@@ -250,16 +235,12 @@ app.post('/login', async (req, res) => {
       `);
     }
 
-    // Compare the provided password with the hashed password in the database
     const isMatch = await bcrypt.compare(pass, user.pass);
     if (!isMatch) {
       return res.status(401).send(`
         <html>
           <head>
-            <link
-              href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-              rel="stylesheet"
-            />
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
           </head>
           <body>
             <div class="modal fade show" style="display:block; background-color: rgba(0, 0, 0, 0.5);" tabindex="-1">
@@ -284,17 +265,11 @@ app.post('/login', async (req, res) => {
 
     console.log('User logged in:', user);
 
-    // Respond with a success modal and redirect logic
     res.send(`
       <html>
         <head>
-          <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-          />
-          <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-          ></script>
+          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         </head>
         <body>
           <div class="modal fade show" style="display:block; background-color: rgba(0, 0, 0, 0.5);" tabindex="-1">
@@ -311,7 +286,7 @@ app.post('/login', async (req, res) => {
           </div>
           <script>
             setTimeout(function() {
-              window.location.href = '/home'; // Redirect to the home page after 2 seconds
+              window.location.href = '/home';
             }, 2000);
           </script>
         </body>
@@ -320,6 +295,114 @@ app.post('/login', async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).send('Error during login');
+  }
+});
+
+// Route for updating user profile
+app.post('/update-profile', async (req, res) => {
+  try {
+    const { email, fullName, phone, address } = req.body;
+
+    // Validate input data
+    if (!email || !fullName) {
+      return res.status(400).json({
+        success: false,
+        message: 'Email and full name are required fields',
+      });
+    }
+
+    // Update user profile with validation
+    const updatedUser = await Users.findOneAndUpdate(
+      { email: email },
+      {
+        name: fullName,
+        phone: phone || '',
+        address: address || '',
+      },
+      {
+        new: true,
+        runValidators: true,
+      }
+    );
+
+    if (!updatedUser) {
+      return res.status(404).send(`
+        <html>
+          <head>
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+          </head>
+          <body>
+            <div class="modal fade show" style="display:block; background-color: rgba(0, 0, 0, 0.5);" tabindex="-1">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Update Failed</h5>
+                  </div>
+                  <div class="modal-body">
+                    <p>User not found. Please try again with correct email.</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button onclick="window.history.back()" class="btn btn-primary">Back</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </body>
+        </html>
+      `);
+    }
+
+    res.send(`
+      <html>
+        <head>
+          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        </head>
+        <body>
+          <div class="modal fade show" style="display:block; background-color: rgba(0, 0, 0, 0.5);" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Profile Updated</h5>
+                </div>
+                <div class="modal-body">
+                  <p>Your profile has been successfully updated!</p>
+                </div>
+                <div class="modal-footer">
+                  <button onclick="window.location.reload()" class="btn btn-primary">OK</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </body>
+      </html>
+    `);
+  } catch (err) {
+    console.error('Error updating profile:', err);
+    res.status(500).send(`
+      <html>
+        <head>
+          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        </head>
+        <body>
+          <div class="modal fade show" style="display:block; background-color: rgba(0, 0, 0, 0.5);" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Error</h5>
+                </div>
+                <div class="modal-body">
+                  <p>An error occurred while updating your profile. Please try again later.</p>
+                </div>
+                <div class="modal-footer">
+                  <button onclick="window.history.back()" class="btn btn-primary">Back</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </body>
+      </html>
+    `);
   }
 });
 

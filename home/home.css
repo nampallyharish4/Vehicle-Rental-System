@@ -10,6 +10,16 @@ body {
   padding-bottom: 5px;
 }
 
+.collapse-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 120px;
+}
+
+.collapse-container .card {
+  width: 300px;
+}
 li,
 h4 {
   text-align: center;

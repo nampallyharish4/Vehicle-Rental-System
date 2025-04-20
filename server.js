@@ -309,6 +309,10 @@ app.post('/orders', (req, res) => {
   res.sendFile(path.join(__dirname, 'userfleet', 'list.html'));
 });
 
+app.post('/contactus', (req, res) => {
+  res.sendFile(path.join(__dirname, 'contact-page', 'contact.html'));
+});
+
 // Route for home page
 app.post('/home', (req, res) => {
   res.sendFile(path.join(__dirname, 'home', 'home.html'));

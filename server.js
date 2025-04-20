@@ -24,6 +24,7 @@ app.use(
 app.use(express.static(path.join(__dirname, 'loginpage')));
 app.use(express.static(path.join(__dirname, 'signup')));
 app.use(express.static(path.join(__dirname, 'home')));
+app.use('/Management', express.static(path.join(__dirname, 'Management')));
 app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use(
   '/css',
@@ -410,3 +411,11 @@ app.post('/update-profile', async (req, res) => {
 app.listen(port, () => {
   console.log(`Server started on ✅ http://localhost:${port}`);
 });
+
+app.post('/orders', (req, res) => {
+  res.sendFile(path.join(__dirname, 'Management', 'list.html'));
+});
+
+// Serve static files (should come after route declarations)
+app.use(express.static(path.join(__dirname, 'home')));
+app.use('/Management', express.static(path.join(__dirname, 'Management')));

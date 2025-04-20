@@ -202,6 +202,10 @@ app.post('/signup', async (req, res) => {
     `);
   }
 });
+// route for hom1
+app.post('/home1', (req, res) => {
+  res.sendFile(path.join(__dirname, 'home', 'home1.html'));
+});
 
 // Post request for login
 app.post('/login', async (req, res) => {
@@ -299,121 +303,18 @@ app.post('/login', async (req, res) => {
   }
 });
 
-// Route for updating user profile
-app.post('/update-profile', async (req, res) => {
-  try {
-    const { email, fullName, phone, address } = req.body;
-
-    // Validate input data
-    if (!email || !fullName) {
-      return res.status(400).json({
-        success: false,
-        message: 'Email and full name are required fields',
-      });
-    }
-
-    // Update user profile with validation
-    const updatedUser = await Users.findOneAndUpdate(
-      { email: email },
-      {
-        name: fullName,
-        phone: phone || '',
-        address: address || '',
-      },
-      {
-        new: true,
-        runValidators: true,
-      }
-    );
-
-    if (!updatedUser) {
-      return res.status(404).send(`
-        <html>
-          <head>
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-          </head>
-          <body>
-            <div class="modal fade show" style="display:block; background-color: rgba(0, 0, 0, 0.5);" tabindex="-1">
-              <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">Update Failed</h5>
-                  </div>
-                  <div class="modal-body">
-                    <p>User not found. Please try again with correct email.</p>
-                  </div>
-                  <div class="modal-footer">
-                    <button onclick="window.history.back()" class="btn btn-primary">Back</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </body>
-        </html>
-      `);
-    }
-
-    res.send(`
-      <html>
-        <head>
-          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        </head>
-        <body>
-          <div class="modal fade show" style="display:block; background-color: rgba(0, 0, 0, 0.5);" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">Profile Updated</h5>
-                </div>
-                <div class="modal-body">
-                  <p>Your profile has been successfully updated!</p>
-                </div>
-                <div class="modal-footer">
-                  <button onclick="window.location.reload()" class="btn btn-primary">OK</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </body>
-      </html>
-    `);
-  } catch (err) {
-    console.error('Error updating profile:', err);
-    res.status(500).send(`
-      <html>
-        <head>
-          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-        </head>
-        <body>
-          <div class="modal fade show" style="display:block; background-color: rgba(0, 0, 0, 0.5);" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">Error</h5>
-                </div>
-                <div class="modal-body">
-                  <p>An error occurred while updating your profile. Please try again later.</p>
-                </div>
-                <div class="modal-footer">
-                  <button onclick="window.history.back()" class="btn btn-primary">Back</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </body>
-      </html>
-    `);
-  }
+// Route for orders page
+app.post('/orders', (req, res) => {
+  res.sendFile(path.join(__dirname, 'Management', 'list.html'));
 });
 
+// Route for home page
+app.post('/home', (req, res) => {
+  res.sendFile(path.join(__dirname, 'home', 'home.html'));
+});
 // Start the server
 app.listen(port, () => {
   console.log(`Server started on ✅ http://localhost:${port}`);
-});
-
-app.post('/orders', (req, res) => {
-  res.sendFile(path.join(__dirname, 'Management', 'list.html'));
 });
 
 // Serve static files (should come after route declarations)

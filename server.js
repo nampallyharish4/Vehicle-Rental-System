@@ -203,7 +203,8 @@ app.post('/signup', async (req, res) => {
   }
 });
 // route for hom1
-app.post('/home1', (req, res) => {
+// Route for home1 page
+app.get('/home1', (req, res) => {
   res.sendFile(path.join(__dirname, 'home', 'home1.html'));
 });
 
@@ -305,7 +306,7 @@ app.post('/login', async (req, res) => {
 
 // Route for orders page
 app.post('/orders', (req, res) => {
-  res.sendFile(path.join(__dirname, 'Management', 'list.html'));
+  res.sendFile(path.join(__dirname, 'userfleet', 'list.html'));
 });
 
 // Route for home page
